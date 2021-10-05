@@ -1,0 +1,69 @@
+---
+title: "Primer on Daggity"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Primer
+
+Exercises from “Causal Inference in Statistics: A Primer” by Pearl, Glymour, and Jewell.
+
+```{r installation}
+library(dagitty)
+library(lavaan)
+```
+
+## Preliminaries
+### Study question 1.4.1
+
+We first define the graph in this exercise using dagitty syntax and plot it.
+You can also embed plots, for example:
+
+```{r}
+g <- dagitty('dag {
+    X [pos="0,1"]
+    Y [pos="1,1"]
+    Z [pos="2,1"]
+    W [pos="1,0"]
+    T [pos="2,2"]
+    
+    X -> Y -> Z -> T
+    X -> W -> Y -> T
+    W -> Z
+}')
+plot(g)
+```
+
+a. Name all of the parents of $Z$.
+```{r}
+parents( g, "Z" )
+```
+
+b. Name all of the ancestors of $Z$.
+```{r}
+ancestors( g, "Z" )
+```
+
+c. Name all of the children of $W$.
+```{r}
+children( g, "W" )
+```
+
+d. Name all of the descendants of $W$.
+```{r}
+descendants( g, "W" )
+```
+
+
+e. Draw all simple paths between $X$ and $T$.
+```{r}
+paths( g, "X", "T" )$paths
+```
+
+f. Draw all the directed paths between $X$ and $T$.
+```{r}
+paths( g, "X", "T", directed=TRUE )$paths
+```
