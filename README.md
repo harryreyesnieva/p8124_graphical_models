@@ -1,2 +1,2 @@
 # p8124_graphical_models
-Assignments for Columbia Mailman SPH course, BIST P8124 Graphical Models for Complex Health Data
+Assignments for Columbia Mailman SPH course, BIST P8124 Graphical Models for Complex Health Data, taught by Dan Malinsky.
